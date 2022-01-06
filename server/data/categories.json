@@ -1,0 +1,37 @@
+[
+  {
+    "_id": 1,
+    "name": "Lifestyle",
+    "imageSrc": "https://www.myparla.com/wp-content/uploads/importance-of-a-healthy-lifestyle.jpg"
+  },
+  {
+    "_id": 2,
+    "name": "Industrial",
+    "imageSrc": "https://cdn.videvo.net/videvo_files/video/premium/video0030/thumbnails/petro_chemML09_small.jpg"
+  },
+  {
+    "_id": 3,
+    "name": "Fitness",
+    "imageSrc": "https://images.all-free-download.com/images/graphiclarge/sports_icons_gym_tennis_cycling_sketch_cartoon_design_6847114.jpg"
+  },
+  {
+    "_id": 4,
+    "name": "Entertainment",
+    "imageSrc": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZW50ZXJ0YWlubWVudHxlbnwwfHwwfHw%3D&w=1000&q=80"
+  },
+  {
+    "_id": 5,
+    "name": "Medical",
+    "imageSrc": "https://media.istockphoto.com/photos/vigilantly-monitoring-his-patients-vitals-picture-id592647720?k=20&m=592647720&s=612x612&w=0&h=7w74WizjriwUAX_yf9utV6m-ZVsmip8Cd5f9HVsu7xA="
+  },
+  {
+    "_id": 6,
+    "name": "Pets and Animals",
+    "imageSrc": "https://thumbs.dreamstime.com/b/large-group-african-safari-animals-wildlife-conservation-concept-174172993.jpg"
+  },
+  {
+    "_id": 7,
+    "name": "Gaming",
+    "imageSrc": "https://www.nme.com/wp-content/uploads/2021/09/Star-Wars-Squadrons-696x442.jpg"
+  }
+]
