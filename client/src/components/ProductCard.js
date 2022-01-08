@@ -24,8 +24,6 @@ const ProductCard = ({ item }) => {
   );
 };
 
-export default ProductCard;
-
 const Container = styled.div`
   cursor: pointer;
   width: 200px;
@@ -39,6 +37,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 0 5px 0 rgb(0 0 0 / 0.5);
+  transition: 200ms ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 const Image = styled.img`
@@ -52,6 +54,7 @@ const Name = styled.div`
   padding: 5px;
   background-color: var(--color-tahuna-sands);
   width: 180px;
+  word-break: break-all;
 `;
 
 const Price = styled.div`
@@ -62,3 +65,5 @@ const Price = styled.div`
   color: var(--color-don-juan);
   width: 180px;
 `;
+
+export default ProductCard;

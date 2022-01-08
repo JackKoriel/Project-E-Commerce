@@ -6,13 +6,14 @@ import { CircularProgress } from "@mui/material";
 import CategoryImage from "./CategoryImage";
 import ProductCard from "./ProductCard";
 
-import { FiArrowLeft } from "react-icons/fi";
-import { FiArrowRight } from "react-icons/fi";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const Homepage = () => {
   const [categories, setCategories] = useState([]);
   const [categoriesStatus, setCategoriesStatus] = useState("loading");
   const [items, setItems] = useState([]);
+  const [itemsStatus, setItemsStatus] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const [start, setStart] = useState(0);
 
@@ -27,10 +28,12 @@ const Homepage = () => {
   }, []);
 
   useEffect(() => {
+    setItemsStatus("loading");
     fetch(`/api/items?start=${start}&limit=9`) // to retrieve the items of the category above
       .then((res) => res.json())
       .then((res) => {
         setItems(res.data);
+        setItemsStatus("active");
       });
   }, [start]);
 
@@ -49,7 +52,11 @@ const Homepage = () => {
   };
 
   if (categoriesStatus === "loading") {
-    return <CircularProgress />;
+    return (
+      <Loading>
+        <CircularProgress /> Loading...
+      </Loading>
+    );
   }
 
   return (
@@ -62,16 +69,21 @@ const Homepage = () => {
         </CategoryContainer>
         <ItemsPagination>
           <Title>🔥Today's Deals🔥</Title>
-          <ItemBox>
-            {items.map((item) => {
-              return <ProductCard key={item._id} item={item} />;
-            })}
-          </ItemBox>
+          {itemsStatus == "loading" ? (
+            <Loading style={{ margin: "300px 0" }}>
+              <CircularProgress /> Loading...
+            </Loading>
+          ) : (
+            <ItemBox>
+              {items.map((item) => {
+                return <ProductCard key={item._id} item={item} />;
+              })}
+            </ItemBox>
+          )}
         </ItemsPagination>
         <Pages>
           Pages:{" "}
           <ArrowLeft
-            // disabled={pageNumber === 1 ? true : false}
             onClick={handleLastPageClick}
             onKeyPress={handleLastPageClick}
             tabIndex="0"
@@ -90,14 +102,26 @@ const Homepage = () => {
 
 export default Homepage;
 
-const Wrapper = styled.div``;
+const Loading = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 25px;
+  margin: 100px auto;
+`;
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 const Container = styled.div`
-  border: 2px solid;
+  width: 100%;
 `;
 const CategoryContainer = styled.div`
   display: flex;
   padding: 20px;
-  width: 100vw;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -111,17 +135,21 @@ const Title = styled.span`
 `;
 
 const ItemsPagination = styled.div`
-  width: 60vw;
+  width: 75vw;
+  /* height: 800px; */
   margin: auto;
   padding: 40px;
   border: 5px solid;
   text-align: center;
+  border-radius: 10px;
 `;
 
 const ItemBox = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 10px;
+  width: 100%;
 `;
 
 const Pages = styled.div`
@@ -130,14 +158,15 @@ const Pages = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 20px;
   font-size: 50px;
 `;
 
-const ArrowRight = styled(FiArrowRight)`
+const ArrowRight = styled(MdArrowForwardIos)`
   cursor: pointer;
 `;
 
-const ArrowLeft = styled(FiArrowLeft)`
+const ArrowLeft = styled(MdArrowBackIosNew)`
   cursor: pointer;
   &:disabled {
     filter: grayscale(100%);

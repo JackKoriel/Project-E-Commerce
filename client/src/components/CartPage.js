@@ -105,7 +105,7 @@ const CartPage = () => {
         }}
       >
         <div>
-          You broke the page... good job! <FaCat size={60} />
+          You broke the page... Cheers! <FaCat size={60} />
         </div>
         <div>
           <GiWizardFace size={60} /> Please refresh the page and try again{" "}

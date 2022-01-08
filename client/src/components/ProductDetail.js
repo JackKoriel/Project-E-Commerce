@@ -39,7 +39,11 @@ const ProductDetail = () => {
   }, [item]);
 
   if (productStatus === "loading" || companyStatus === "loading") {
-    return <CircularProgress />;
+    return (
+      <Loading>
+        <CircularProgress /> Loading...
+      </Loading>
+    );
   }
 
   return (
@@ -101,60 +105,77 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+const Loading = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 25px;
+  margin: 30px auto;
+  margin-top: 100px;
+`;
 
 const Wrapper = styled.div`
-  border-radius: 10px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `;
+
 const Container = styled.div`
-  border-radius: 10px;
-  padding: 100px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 500px 200px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 80%;
 `;
 
 const Box = styled.div`
-  border-radius: 10px;
+  /* border-radius: 10px; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
+  height: 100%;
+  margin-left: 10px;
 `;
 const Left = styled.div`
-  border: 1px solid black;
+  border: solid 1px rgba(34, 105, 111, 0.4);
+  border-radius: 10px;
+  box-shadow: 0px 20px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 60%;
 `;
+
 const ProductImage = styled.img`
   display: flex;
   align-items: center;
   padding: 70px;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
-  transition: 0.6s;
 `;
 
 const Name = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   text-decoration: none;
-  background-color: var(--color-moss-green);
+  background-color: var(--color-elm);
   color: white;
   font-size: 32px;
   outline: none;
   height: 200px;
-  bottom: 0;
-  position: relative;
   width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0 20px;
 `;
 
 const Price = styled.div`
@@ -189,21 +210,25 @@ const CompanyId = styled.div`
 const Description = styled.div`
   font-size: 24px;
   padding: 10px;
+  line-height: 30px;
 `;
 const AddToCart = styled.button`
   text-decoration: none;
-  background-color: var(--color-moss-green);
+  background-color: var(--color-elm);
   color: white;
   border: none;
   outline: none;
   height: 100px;
-  bottom: 0;
-  position: absolute;
   width: 100%;
+  font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   transition: 500ms;
   &:hover {
-    background-color: #808080;
+    background-color: var(--color-moss-green);
+    color: var(--color-elm);
   }
   &:disabled {
     cursor: not-allowed;
@@ -213,8 +238,10 @@ const AddToCart = styled.button`
 const Right = styled.div`
   display: flex;
   flex-direction: column;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  position: relative;
+  max-width: 40%;
+  border: solid 1px rgba(34, 105, 111, 0.4);
+  border-radius: 10px;
+  box-shadow: 0px 20px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
+
+export default ProductDetail;

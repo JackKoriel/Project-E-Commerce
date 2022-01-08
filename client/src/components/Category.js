@@ -35,8 +35,12 @@ const Category = () => {
 
   // I need to use a req.query to get the items per category!
 
-  if (categoryStatus === "loading" && itemsStatus === "loading") {
-    return <CircularProgress />;
+  if (categoryStatus === "loading" || itemsStatus === "loading") {
+    return (
+      <Loading>
+        <CircularProgress /> Loading...
+      </Loading>
+    );
   }
 
   return (
@@ -50,13 +54,29 @@ const Category = () => {
   );
 };
 
-export default Category;
+const Loading = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 25px;
+  margin: 30px auto;
+  margin-top: 100px;
+`;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  /* height: 80vh; */
+`;
 
 const Container = styled.div`
+  /* height: 80vh; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: flex-start;
+  /* overflow-y: scroll; */
 `;
+
+export default Category;

@@ -43,7 +43,10 @@ const Container = styled.button`
   justify-content: center;
   align-items: center;
   padding: 5px 10px;
-
+  transition: 200ms ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
   &:active {
     box-shadow: none;
   }
@@ -52,6 +55,7 @@ const Container = styled.button`
 const CategoryName = styled.div`
   border-radius: 5px;
   border: 2px solid;
+  padding: 5px 10px;
   background-color: var(--color-moss-green);
   color: white;
   font-weight: 700;

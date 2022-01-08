@@ -53,12 +53,14 @@ const Header = () => {
   );
 };
 
-export default Header;
-
 const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  flex: 0;
   box-shadow: 0 0 5px 0px rgb(0 0 0 / 0.5);
   background-color: var(--color-elm);
   border-radius: 0 0 3px 3px;
+  width: 100%;
 `;
 
 const Container = styled.div`
@@ -66,11 +68,12 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  width: 100%;
 `;
 
 const HomeButton = styled.button`
   font-size: 30px;
-  padding: 3px;
+  padding: 5px 10px;
   border-radius: 3px;
   cursor: pointer;
   border: none;
@@ -90,7 +93,7 @@ const RightSideButtons = styled.div`
 
 const SignIn = styled.button`
   font-size: 30px;
-  padding: 3px;
+  padding: 5px 10px;
   border-radius: 3px;
   cursor: pointer;
   border: none;
@@ -105,7 +108,7 @@ const SignIn = styled.button`
 const Cart = styled.button`
   font-size: 30px;
   margin: 0 0 0 10px;
-  padding: 3px;
+  padding: 5px 10px;
   border-radius: 3px;
   cursor: pointer;
   border: none;
@@ -116,3 +119,5 @@ const Cart = styled.button`
     background-color: var(--color-tahuna-sands);
   }
 `;
+
+export default Header;

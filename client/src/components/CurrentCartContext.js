@@ -58,6 +58,8 @@ export const CurrentCartProvider = ({ children }) => {
   const [status, setStatus] = useState("idle");
   const [errMessage, setErrMessage] = useState("");
 
+  console.log("cart", cart);
+
   const addItems = (item) => {
     dispatch({ type: "ADD-ITEM", item });
   };

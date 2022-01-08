@@ -40,6 +40,7 @@ const Footer = () => {
 export default Footer;
 
 const Wrapper = styled.div`
+  flex: 0;
   background-color: white;
   bottom: 0;
   width: 100%;
@@ -52,13 +53,14 @@ const Wrapper = styled.div`
 const Extras = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
 `;
 
 const LinkColumn = styled.div`
   background-color: var(--color-tahuna-sands);
-  padding: 3px;
+  padding: 3px 10px;
   border-radius: 3px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   display: flex;
   flex-direction: column;
 `;

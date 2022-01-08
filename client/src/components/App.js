@@ -20,29 +20,31 @@ function App() {
       <BrowserRouter>
         <Main>
           <Header />
-          <Switch>
-            <Route exact path="/">
-              <Homepage />
-            </Route>
-            <Route path="/brands">
-              <Companies />
-            </Route>
-            <Route path="/sign-in">
-              <SignIn user={user} setUser={setUser} />
-            </Route>
-            <Route exact path="/category/:name">
-              <Category />
-            </Route>
-            <Route path="/products/:_id">
-              <ProductDetail />
-            </Route>
-            <Route path="/cartpage">
-              <CartPage />
-            </Route>
-            <Route path="/confirmed">
-              <Confirmation />
-            </Route>
-          </Switch>
+          <Fill>
+            <Switch>
+              <Route exact path="/">
+                <Homepage />
+              </Route>
+              <Route path="/brands">
+                <Companies />
+              </Route>
+              <Route path="/sign-in">
+                <SignIn user={user} setUser={setUser} />
+              </Route>
+              <Route exact path="/category/:name">
+                <Category />
+              </Route>
+              <Route path="/products/:_id">
+                <ProductDetail />
+              </Route>
+              <Route path="/cartpage">
+                <CartPage />
+              </Route>
+              <Route path="/confirmed">
+                <Confirmation />
+              </Route>
+            </Switch>
+          </Fill>
           <Footer />
         </Main>
       </BrowserRouter>
@@ -52,4 +54,18 @@ function App() {
 
 export default App;
 
-const Main = styled.div``;
+const Main = styled.div`
+  /* position: relative; */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Fill = styled.div`
+  flex: 1;
+  height: auto;
+  width: 100%;
+`;

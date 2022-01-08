@@ -49,13 +49,14 @@ const SearchBox = styled.input`
   margin-right: 5px;
   border: none;
   background-color: var(--color-moss-green);
-  padding: 3px;
+  padding: 5px;
+  padding-left: 10px;
   border-radius: 3px;
 `;
 
 const SearchButton = styled.button`
   font-size: 30px;
-  padding: 3px;
+  padding: 5px 10px;
   border-radius: 3px;
   cursor: pointer;
   border: none;
