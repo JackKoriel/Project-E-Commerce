@@ -59,8 +59,9 @@ const Wrapper = styled.div`
   flex: 0;
   box-shadow: 0 0 5px 0px rgb(0 0 0 / 0.5);
   background-color: var(--color-elm);
-  border-radius: 0 0 3px 3px;
+  /* border-radius: 0 0 3px 3px; */
   width: 100%;
+  z-index: 100;
 `;
 
 const Container = styled.div`

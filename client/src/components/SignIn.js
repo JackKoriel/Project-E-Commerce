@@ -122,6 +122,10 @@ const Wrapper = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 50px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    0 100px 80px rgba(0, 0, 0, 0.07);
 `;
 const Title = styled.div`
   display: flex;
@@ -137,7 +141,7 @@ const Form = styled.form`
   margin: 40px;
   position: relative;
   padding: 24px;
-  background-color: white;
+  background-color: var(--color-keppel);
   width: 450px;
   padding: 24px;
   margin-top: 32px;
@@ -169,18 +173,17 @@ const Button = styled.button`
   padding: 10px 20px;
   border-radius: 7px;
   justify-content: center;
-  background: linear-gradient(
-    97deg,
-    rgba(22, 160, 133, 1) 0%,
-    rgba(243, 199, 83, 1) 31%,
-    rgba(22, 160, 133, 1) 81%
-  );
-  background-position: 125%;
-
-  @keyframes shine {
-    to {
-      background-position: -70%;
-    }
+  cursor: pointer;
+  border: none;
+  background-color: var(--color-elm);
+  color: var(--color-tahuna-sands);
+  transition: 200ms ease-in-out;
+  &:hover {
+    background-color: var(--color-tahuna-sands);
+    color: var(--color-elm);
+  }
+  &:active {
+    transform: scale(0.9);
   }
 `;
 

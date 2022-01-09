@@ -1,4 +1,4 @@
-import React, { useState, useReducer, createContext } from "react";
+import React, { useState, useReducer, createContext, useEffect } from "react";
 
 export const CurrentCartContext = createContext();
 
@@ -54,11 +54,13 @@ function reducer(state, action) {
 }
 
 export const CurrentCartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(reducer, initialState);
-  const [status, setStatus] = useState("idle");
-  const [errMessage, setErrMessage] = useState("");
+  const [cart, dispatch] = useReducer(
+    reducer,
+    JSON.parse(window.sessionStorage.getItem("ItemsInCart")) || initialState
+  );
 
-  console.log("cart", cart);
+  const [status, setStatus] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const addItems = (item) => {
     dispatch({ type: "ADD-ITEM", item });
@@ -79,6 +81,14 @@ export const CurrentCartProvider = ({ children }) => {
   const clearCart = () => {
     dispatch({ type: "CLEAR-CART" });
   };
+
+  useEffect(() => {
+    window.sessionStorage.setItem("ItemsInCart", JSON.stringify(cart));
+
+    return () => {
+      window.sessionStorage.setItem("ItemsInCart", JSON.stringify(cart));
+    };
+  }, [cart]);
 
   return (
     <CurrentCartContext.Provider
